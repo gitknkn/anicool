@@ -1,0 +1,26 @@
+<h2>(仮)投稿編集ページ</h2>
+
+<%= form_for(@anime) do |f| %>
+  <div class="field">
+    <%= f.label :タイトル %><br />
+    <%= f.text_field :title, autofocus: true, autocomplete: "title" %>
+  </div>
+  <div class="field">
+    <%= f.label :名言 %><br />
+    <%= f.text_field :main, autofocus: true, autocomplete: "main" %>
+  </div>
+  <div class="field">
+    <%= f.label :一押しポイント %><br />
+    <%= f.text_area :subbody, autofocus: true, autocomplete: "subbody" %>
+  </div>
+  <div class="field">
+    <%= attachment_image_tag @anime, :image %>
+    <%= f.attachment_field :image %>
+  </div>
+  <div class="field">
+    <%= f.submit "編集を公開する" %><br />
+  </div>
+
+<% end %>
+
+<p><%= link_to "投稿を削除する", anime_path(@anime.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>

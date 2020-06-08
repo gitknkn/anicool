@@ -1,0 +1,25 @@
+<h2>(仮)新規投稿画面</h2>
+
+<%= form_for(@anime) do |f| %>
+  <div class="field">
+    <%= f.label :タイトル %><br />
+    <%= f.text_field :title, autofocus: true, autocomplete: "title" %>
+  </div>
+  <div class="field">
+    <%= f.label :名言 %><br />
+    <%= f.text_field :main, autofocus: true, autocomplete: "main" %>
+  </div>
+  <div class="field">
+    <%= f.label :一押しポイント %><br />
+    <%= f.text_area :subbody, autofocus: true, autocomplete: "subbody" %>
+  </div>
+  <div class="field">
+    <%= attachment_image_tag @anime, :image %>
+    <%= f.attachment_field :image %>
+  </div>
+  <div class="field">
+    <%= f.submit "新規投稿" %><br />
+  </div>
+
+<% end %>
+

@@ -1,0 +1,19 @@
+<h2>(仮)投稿詳細ページ</h2>
+
+<p><%= "#{@anime.user.name}さんの投稿一覧" %></p>
+<h4>タイトル:</h4>
+<p><%= @anime.user.name %></p>
+
+<h4>名言:</h4>
+<p><%= @anime.title %></p>
+
+<h4>一押しポイント:</h4>
+<p><%= @anime.subbody %></p>
+
+<h4>画像:</h4>
+<p><%= @anime.image %></p>
+
+<% if current_user == @anime.user %>
+  <p><%= link_to "(仮)投稿編集ページ", edit_anime_path(@anime.id) %></p>
+  <p><%= link_to '投稿一覧に戻る', animes_path %> </p>
+<% end %>

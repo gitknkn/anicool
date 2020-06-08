@@ -1,0 +1,26 @@
+<h2>(仮)投稿一覧ページ</h2>
+
+<div class="container">
+  <div class="col-md-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><p>投稿者名</p></th>
+          <th><p>タイトル</p></th>
+          <th><p>名言</p></th>
+          <th><p>写真</p></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @animes.each do |anime| %>
+          <tr>
+            <td><%= anime.user.name %></td>
+            <td><%= link_to"#{anime.title}", anime_path(anime.id)  %> 
+            <td><%= anime.main %> 
+            <td><%= anime.image %></td>
+          </tr>
+        <% end %>  
+      </tbody>
+    </table>
+  </div>
+</div>
