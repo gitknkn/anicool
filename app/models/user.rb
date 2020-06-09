@@ -7,6 +7,8 @@ class User < ApplicationRecord
         :rememberable, #ログイン情報を保存
         :validatable #(emailのフォーマットなどのバリデーション)
 
-  has_many :animes, dependent: :destroy
+  has_many :animes, dependent: :destroy 
+  has_many :anime_comments, dependent: :destroy
+  has_many :favorites ,dependent: :destroy
 
 end

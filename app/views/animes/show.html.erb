@@ -1,19 +1,56 @@
 <h2>(仮)投稿詳細ページ</h2>
 
+
 <p><%= "#{@anime.user.name}さんの投稿一覧" %></p>
 <h4>タイトル:</h4>
-<p><%= @anime.user.name %></p>
-
-<h4>名言:</h4>
 <p><%= @anime.title %></p>
 
-<h4>一押しポイント:</h4>
+<h4>名言:</h4>
+<p><%= @anime.main %></p>
+
+<h4>名言ポイント:</h4>
 <p><%= @anime.subbody %></p>
 
 <h4>画像:</h4>
-<p><%= @anime.image %></p>
+<p><%= attachment_image_tag @anime, :image, :fill, 100, 100, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb" %></p>
+
+
+<h4>コメント一覧</h4>
+<% @comments.each do |comment| %>
+  <% unless comment.user.blank? %> <%# .blank?メンター確認 %>
+    <%= link_to "#{comment.comment}", edit_anime_anime_comment_path(comment.id) %>
+    <p><%= comment.user.name %></p>
+  <% end %>
+<% end %>
+
+<h4>仮）いいね</h4>
+<% if @anime.favorited_by?(current_user) %>
+  <li>
+    <%= link_to anime_favorites_path(@anime), method: :delete do %>
+      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+      <%= @anime.favorites.count %> いいね
+    <% end %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to anime_favorites_path(@anime), method: :post do %>
+      <i class="fa fa-heart-o" aria-hidden="true"></i>
+      <%= @anime.favorites.count %> いいね
+    <% end %>
+  </li>
+<% end %>
+
+
+<%= form_with(model: [@anime, @comment], local: true) do |f| %>
+  <%= f.text_area :comment %>
+  <%= f.submit "コメントする" %>
+<% end %>
+
+
 
 <% if current_user == @anime.user %>
   <p><%= link_to "(仮)投稿編集ページ", edit_anime_path(@anime.id) %></p>
   <p><%= link_to '投稿一覧に戻る', animes_path %> </p>
 <% end %>
+
+

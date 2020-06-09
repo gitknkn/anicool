@@ -17,9 +17,10 @@
             <td><%= anime.user.name %></td>
             <td><%= link_to"#{anime.title}", anime_path(anime.id)  %> 
             <td><%= anime.main %> 
-            <td><%= anime.image %></td>
+            <%# <td><%= image_tag attachment_url(anime, :image, :fill, 300, 300, format: "jpg") </td> %>
+            <td><%= attachment_image_tag anime, :image, :fill, 60, 60, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb" %></td>
           </tr>
-        <% end %>  
+        <% end %>
       </tbody>
     </table>
   </div>

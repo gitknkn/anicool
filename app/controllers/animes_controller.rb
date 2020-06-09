@@ -1,6 +1,5 @@
 class AnimesController < ApplicationController
-
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index] #indexのみ非ログインでも、許可
 
   def new
     @anime = Anime.new
@@ -19,7 +18,9 @@ class AnimesController < ApplicationController
 
   def show
     @anime = Anime.find(params[:id])
-    # @user = Anime.user
+    # @user = Anime.user 後で消す（必要か微妙の為）
+    @comments = @anime.anime_comments
+    @comment = @anime.anime_comments.build
   end
 
   def edit
