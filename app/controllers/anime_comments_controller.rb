@@ -2,8 +2,8 @@ class AnimeCommentsController < ApplicationController
   before_action :authenticate_user! #ログインユーザーのみアクセスを許可
 
   def create
-    anime = Anime.find(params[:anime_id])
-    @comment = anime.anime_comments.build(anime_comment_params)
+    @anime = Anime.find(params[:anime_id])
+    @comment = @anime.anime_comments.build(anime_comment_params)
     @comment.user_id = current_user.id
     if @comment.save
       flash[:success] = "コメントしましました"
@@ -15,16 +15,25 @@ class AnimeCommentsController < ApplicationController
   end
 
   def edit
-
+    @anime = Anime.find(params[:anime_id])
+    @comment = AnimeComment.find(params[:id])
   end
 
   def update
-
+    @anime = Anime.find(params[:anime_id])
+    @comment = AnimeComment.find(params[:id])
+    if @comment.update(anime_comment_params)
+      redirect_to anime_path(params[:anime_id])
+    else
+      render "edit"
+    end
   end
 
   def destroy
-    comment = AnimeComment.find_by(id: prams[:id], anime_id: params[anime_id], user_id: current_user.id)
-    comment.destroy
+    @anime = Anime.find(params[:anime_id])
+    @comment = AnimeComment.find(params[:id])
+    @comment.user_id = current_user.id
+    @comment.destroy
     redirect_to anime_path(params[:anime_id])
   end
 
