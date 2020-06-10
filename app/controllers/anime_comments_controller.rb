@@ -15,13 +15,13 @@ class AnimeCommentsController < ApplicationController
   end
 
   def edit
-    @anime = Anime.find(params[:anime_id])
-    @comment = AnimeComment.find(params[:id])
+    @anime = Anime.find(params[:anime_id]) #rails routes確認内容
+    @comment = AnimeComment.find(params[:id]) #rails routes確認内容
   end
 
   def update
-    @anime = Anime.find(params[:anime_id])
-    @comment = AnimeComment.find(params[:id])
+    @anime = Anime.find(params[:anime_id]) #rails routes確認内容
+    @comment = AnimeComment.find(params[:id]) #rails routes確認内容
     if @comment.update(anime_comment_params)
       redirect_to anime_path(params[:anime_id])
     else
@@ -30,8 +30,8 @@ class AnimeCommentsController < ApplicationController
   end
 
   def destroy
-    @anime = Anime.find(params[:anime_id])
-    @comment = AnimeComment.find(params[:id])
+    @anime = Anime.find(params[:anime_id]) #rails routes確認内容
+    @comment = AnimeComment.find(params[:id]) #rails routes確認内容
     @comment.user_id = current_user.id
     @comment.destroy
     redirect_to anime_path(params[:anime_id])
