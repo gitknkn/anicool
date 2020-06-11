@@ -20,19 +20,21 @@
   <%= render partial: 'favorites/favorite', locals: { anime: @anime } %>
 </div>
 
-
-<h4>コメント一覧</h4>
-<% @comments.each do |comment| %>
-  <% unless comment.user.blank? %> <%# .blank?メンター確認 %>
-    <%= link_to "#{comment.comment}", edit_anime_anime_comment_path(@anime.id, comment.id) %>
-    <p><%= comment.user.name %></p>
-  <% end %>
-<% end %>
-
-<%= form_with(model: [@anime, @comment], local: true) do |f| %>
-  <%= f.text_area :comment %>
-  <%= f.submit "コメントする" %>
-<% end %>
+<div class="row">
+  <ul>
+    <li class="comment_create">
+      <h4 class="text-left title">コメント一覧</h4>
+    </li>
+    <li id="comments_area">
+      <%= render partial: 'anime_comments/index', locals: { comments: @comments, anime: @anime } %>
+    </li>
+  </ul>
+  <hr>
+  <div class="comment-create">
+    <h4 class="text-left">コメント投稿</h4>
+    <%= render partial: 'anime_comments/form', locals: { comment: @comment, anime: @anime } %>
+  </div>
+</div>
 
 
 
@@ -40,7 +42,6 @@
   <p><%= link_to "(仮)投稿編集ページ", edit_anime_path(@anime.id) %></p>
   <p><%= link_to '投稿一覧に戻る', animes_path %> </p>
 <% end %>
-
 
 
 

@@ -5,28 +5,7 @@ class AnimeCommentsController < ApplicationController
     @anime = Anime.find(params[:anime_id])
     @comment = @anime.anime_comments.build(anime_comment_params)
     @comment.user_id = current_user.id
-    if @comment.save
-      flash[:success] = "コメントしましました"
-      redirect_back(fallback_location: anime_path(anime))
-    else
-      flash[:alert]
-      render template: "animes/show"
-    end
-  end
-
-  def edit
-    @anime = Anime.find(params[:anime_id]) #rails routes確認内容
-    @comment = AnimeComment.find(params[:id]) #rails routes確認内容
-  end
-
-  def update
-    @anime = Anime.find(params[:anime_id]) #rails routes確認内容
-    @comment = AnimeComment.find(params[:id]) #rails routes確認内容
-    if @comment.update(anime_comment_params)
-      redirect_to anime_path(params[:anime_id])
-    else
-      render "edit"
-    end
+    @comment.save
   end
 
   def destroy
@@ -34,7 +13,6 @@ class AnimeCommentsController < ApplicationController
     @comment = AnimeComment.find(params[:id]) #rails routes確認内容
     @comment.user_id = current_user.id
     @comment.destroy
-    redirect_to anime_path(params[:anime_id])
   end
 
   private
@@ -42,3 +20,15 @@ class AnimeCommentsController < ApplicationController
     params.require(:anime_comment).permit(:comment, :user_id, :anime_id)
   end
 end
+
+
+# if @comment.save
+#   flash[:success] = "コメントしましました"
+#   redirect_back(fallback_location: anime_path(anime))
+# else
+#   flash[:alert]
+#   render template: "animes/show"
+# end
+
+
+# redirect_to anime_path(params[:anime_id])

@@ -13,13 +13,13 @@ class AnimesController < ApplicationController
   end
 
   def index
-    @animes = Anime.all
+    @animes = Anime.order(created_at: :desc).limit(8) 
   end
 
   def show
     @anime = Anime.find(params[:id])
     # @user = Anime.user 後で消す（必要か微妙の為）
-    @comments = @anime.anime_comments
+    @comments = @anime.anime_comments.order(created_at: :desc)
     @comment = @anime.anime_comments.build
   end
 

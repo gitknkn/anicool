@@ -1,0 +1,4 @@
+$("#comments_area").html("<%= j(render 'anime_comments/index', { comments: @comment.anime.anime_comments, anime: @comment.anime }) %>")
+$(".comment-create").html("<%= j(render 'anime_comments/form', { comment: @comment, anime: @comment.anime }) %>")
+$("textarea").val('')
+

@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
 
   def create
     @anime = Anime.find(params[:anime_id])
-    favorite = current_user.favorites.new(anime_id: @anime.id)
+    favorite = current_user.favorites.new(anime_id: @anime.id) #上記のAnimeモデルの中から.idを限定して選択している。
     favorite.save
     # redirect_to anime_path(anime) 非同期化の為、不要
   end

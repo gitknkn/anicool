@@ -1,0 +1,4 @@
+<%= form_with(model: [anime, comment], url: anime_anime_comments_path(anime), method: :post) do |f| %>
+  <%= f.text_area :comment, class:"input-mysize" %>
+  <%= f.submit "コメント投稿", class: "btn btn-outline-dark comment-submit float-right" %>
+<% end %>
