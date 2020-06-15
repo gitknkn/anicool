@@ -48,6 +48,10 @@ class AnimesController < ApplicationController
     redirect_to animes_path, notice: "投稿を削除しました！"
   end
 
+  def search
+    @animes = Anime.search(params[:search])
+  end
+
   private
   def anime_params
     params.require(:anime).permit(:title, :main, :subbody, :image)

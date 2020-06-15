@@ -9,6 +9,13 @@ class Anime < ApplicationRecord
   validates :main, presence: true, length: { in: 2..30}
   validates :subbody, presence: true, length: { maximum: 150 }
 
+  def self.search(search)
+    if search
+      Anime.where(['title LIKE ?', "%#{search}%"])
+    else
+      Anime.all
+    end
+  end
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root "home#top"
   get 'home/about'
 
+  get '/search' => 'search#search'
+
   devise_for :users
 
   resources :users, only: [:show] do
