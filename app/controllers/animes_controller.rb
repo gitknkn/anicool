@@ -8,8 +8,11 @@ class AnimesController < ApplicationController
   def create
     @anime = Anime.new(anime_params)
     @anime.user_id = current_user.id
-    @anime.save
-    redirect_to animes_path
+    if @anime.save
+      redirect_to animes_path, notice: "投稿が完了しました！"
+    else
+      render :new
+    end
   end
 
   def index
@@ -18,7 +21,7 @@ class AnimesController < ApplicationController
 
   def show
     @anime = Anime.find(params[:id])
-    # @user = Anime.user 後で消す（必要か微妙の為）
+    @user = @anime.user 
     @comments = @anime.anime_comments.order(created_at: :desc)
     @comment = @anime.anime_comments.build
   end
@@ -33,7 +36,7 @@ class AnimesController < ApplicationController
   def update
     @anime = Anime.find(params[:id])
     if @anime.update(anime_params)
-      redirect_to anime_path(@anime.id)
+      redirect_to anime_path(@anime.id), notice: "投稿を編集しました！"
     else
       render "edit"
     end
@@ -42,7 +45,7 @@ class AnimesController < ApplicationController
   def destroy
     @anime = Anime.find(params[:id])
     @anime.destroy
-    redirect_to animes_path
+    redirect_to animes_path, notice: "投稿を削除しました！"
   end
 
   private

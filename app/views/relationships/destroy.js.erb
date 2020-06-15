@@ -1,0 +1,4 @@
+$("#bbb").html("<%= j(render('users/follow')) %>");
+//$("#aaa").html("<%= j(render('users/follow'))%>");
+$("#followers_count").html("<p style='color: black;'>フォローワー<%= @user.followers.count %>人</p>");
+$("#following_count").html("<p style='color: black;'>フォロー<%= @user.following.count %>人</p>");

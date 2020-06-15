@@ -1,7 +1,6 @@
 <h2>(仮)投稿詳細ページ</h2>
 
-
-<p><%= "#{@anime.user.name}さんの投稿一覧" %></p>
+<p><%= link_to  "#{@anime.user.name}さんの投稿", user_path(@user), data: {"turbolinks" => false} %></p>
 <h4>タイトル:</h4>
 <p><%= @anime.title %></p>
 
@@ -36,12 +35,7 @@
   </div>
 </div>
 
-
-
 <% if current_user == @anime.user %>
   <p><%= link_to "(仮)投稿編集ページ", edit_anime_path(@anime.id) %></p>
   <p><%= link_to '投稿一覧に戻る', animes_path %> </p>
 <% end %>
-
-
-

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_052455) do
+ActiveRecord::Schema.define(version: 2020_06_13_051423) do
 
   create_table "anime_comments", force: :cascade do |t|
     t.text "comment"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 2020_06_09_052455) do
     t.integer "anime_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "following_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,2 +1,2 @@
-$(".comment-entty").html("<%= j(render 'anime_comments/index', { comments: @comment.anime.anime_comments, anime: @comment.anime }) %>")
+$("#comments_area").html("<%= j(render 'anime_comments/index', { comments: @comment.anime.anime_comments, anime: @comment.anime }) %>")
 $("textarea").val('')

@@ -1,0 +1,26 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav class="nav navbar-nav navbar-left">
+      <span>welocomo to anicool</span>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <!--if文でサインインとアウト時の表示を変更-->
+        <% if user_signed_in? %>
+          <li><%= link_to ' トップページ ', root_path, class: 'glyphicon glyphicon-home home' %></li>
+          <li><%= link_to ' マイページ ', user_path(current_user), class: 'glyphicon glyphicon-home home' %></li>
+          <li><%= link_to ' 新規投稿ページ ', new_anime_path, class: 'glyphicon glyphicon-user users' %></li>
+          <li><%= link_to ' 投稿一覧ページ ', animes_path, class: 'glyphicon glyphicon-book books' %></li>
+          <li><%= link_to ' サイト情報について ', animes_path , class: 'glyphicon glyphicon-book books' %></li>
+          <li><%= link_to ' ログアウト ', destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout' %></li>
+        <% else %>
+          <li><%= link_to ' トップページ ', root_path, class: 'glyphicon glyphicon-home home' %></li>
+          <li><%= link_to ' アバウトページ ', home_about_path, class: 'glyphicon glyphicon-link about' %></li>
+          <li><%= link_to ' 投稿一覧ページ ', animes_path, class: 'glyphicon glyphicon-book books' %></li>
+          <li><%= link_to ' 新規登録 ', new_user_registration_path, class: 'glyphicon glyphicon-edit sign_up' %></li>
+          <li><%= link_to ' ログイン', new_user_session_path, class: 'glyphicon glyphicon-log-in sign_in' %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

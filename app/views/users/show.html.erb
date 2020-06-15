@@ -1,0 +1,16 @@
+<h2>ユーザー詳細ページ</h2>
+
+<div class="follower">
+  <%= link_to followers_user_path(@user) do %>
+    <div id="followers_count"><p style="color: black;">フォローワー<%= @user.followers.count %>人</p></div>
+  <% end %>
+</div>
+<div class="follow">
+  <%= link_to following_user_path(@user) do %>
+    <div id="following_count"><p style="color: black;">フォロー<%= @user.following.count %>人</p></div>
+  <% end %>
+  <%=  %>
+</div>
+<div>
+  <%= render "follow_form" %>
+</div>

@@ -1,5 +1,5 @@
 <%= comments.count %>件コメント
-  <h4 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-comtrols="collapseEeample">さらに表示！</h6>
+  <h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">さらに表示...</h6>
 <%# 常時、表示分 %>
 <% comments.first(3).each do |comment| %>
   <% unless comment.id.nil? %>
