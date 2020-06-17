@@ -3,7 +3,7 @@
 <%= form_for(@anime) do |f| %>
 <%= render 'layouts/error_anime', anime: @anime %>
   <div class="field">
-    <%= f.label :タイトル %><br />
+    <%= f.label :アニメタイトル %><br />
     <%= f.text_field :title, autofocus: true, autocomplete: "title" %>
   </div>
   <div class="field">
@@ -11,7 +11,7 @@
     <%= f.text_field :main, autofocus: true, autocomplete: "main" %>
   </div>
   <div class="field">
-    <%= f.label :一押しポイント %><br />
+    <%= f.label :名言に選んだ理由 %><br />
     <%= f.text_area :subbody, autofocus: true, autocomplete: "subbody" %>
   </div>
   <div class="field">

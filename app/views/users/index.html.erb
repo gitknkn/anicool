@@ -1,0 +1,23 @@
+<h2>仮ユーザー一覧</h2>
+
+<div class="container">
+  <div class="col-md-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><p>名前</p></th>
+          <th><p>紹介写真</p></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to"#{user.name}", user_path(user.id) %></td>
+            <td><%= attachment_image_tag user, :my_photo, :fill, 60, 60, fallback: "no_image.jpg" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class='p-top__paginate'><%= paginate(@users) %></div>
+  </div>
+</div>

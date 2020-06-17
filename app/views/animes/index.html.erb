@@ -8,7 +8,7 @@
       <thead>
         <tr>
           <th><p>投稿者名</p></th>
-          <th><p>タイトル</p></th>
+          <th><p>アニメタイトル</p></th>
           <th><p>名言</p></th>
           <th><p>写真</p></th>
         </tr>
@@ -20,10 +20,12 @@
             <td><%= link_to"#{anime.title}", anime_path(anime.id)  %> 
             <td><%= anime.main %> 
             <%# <td><%= image_tag attachment_url(anime, :image, :fill, 300, 300, format: "jpg") </td> %>
-            <td><%= attachment_image_tag anime, :image, :fill, 60, 60, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb" %></td>
+            <td><%= attachment_image_tag anime, :image, :fill, 60, 60, fallback: "no_image.jpg" %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
+    <div class='p-top__paginate'><%= paginate(@animes) %></div>
   </div>
 </div>
+

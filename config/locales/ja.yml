@@ -1,0 +1,41 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "を入力して下さい！"
+              taken: "は、既に登録されています！"
+            password:
+              blank: "を入力して下さい！"
+            name:
+              blank: "を入力して下さい！"
+              too_short: "は、2文字以上10文字以下で入力して下さい！"
+            my_introdution:
+              blank: "を入力して下さい！"
+              too_short: "は、2文字以上150文字以下で入力して下さい！"
+        anime:
+          attributes:
+            title: 
+              blank: "を入力して下さい！"
+              too_short: "は、2文字以上30文字以下で入力して下さい！"
+            main:
+              blank: "を入力して下さい！"
+              too_short: "は、2文字以上30文字以下で入力して下さい！"
+            subbody:
+              blank: "を入力して下さい！"
+              too_short: "は、2文字以上150文字以下で入力して下さい！"
+    models:
+      user: "ユーザー"
+    attributes:
+      user:
+        name: "名前"
+        my_introdution: "自己紹介"
+        my_photo: "自己紹介写真"
+      anime: "アニメ"
+    attributes:
+      anime:
+        title: "アニメタイトル"
+        main: "名言"
+        subbody: "名言に選んだ理由"

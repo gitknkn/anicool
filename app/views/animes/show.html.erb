@@ -1,17 +1,17 @@
 <h2>(仮)投稿詳細ページ</h2>
 
 <p><%= link_to  "#{@anime.user.name}さんの投稿", user_path(@user), data: {"turbolinks" => false} %></p>
-<h4>タイトル:</h4>
+<h4>アニメタイトル:</h4>
 <p><%= @anime.title %></p>
 
 <h4>名言:</h4>
 <p><%= @anime.main %></p>
 
-<h4>名言ポイント:</h4>
+<h4>名言に選んだ理由:</h4>
 <p><%= @anime.subbody %></p>
 
 <h4>画像:</h4>
-<p><%= attachment_image_tag @anime, :image, :fill, 100, 100, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb" %></p>
+<p><%= attachment_image_tag @anime, :image, :fill, 100, 100, fallback: "no_image.jpg" %></p>
 
 
 <h4>仮）いいね</h4>

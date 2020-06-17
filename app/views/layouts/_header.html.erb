@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <nav class="nav navbar-nav navbar-left">
-      <span>welocomo to anicool</span>
+      <span>〜anicool〜 心に残る名言を投稿して下さい！</span>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">
@@ -11,7 +11,8 @@
           <li><%= link_to ' マイページ ', user_path(current_user), class: 'glyphicon glyphicon-home home' %></li>
           <li><%= link_to ' 新規投稿ページ ', new_anime_path, class: 'glyphicon glyphicon-user users' %></li>
           <li><%= link_to ' 投稿一覧ページ ', animes_path, class: 'glyphicon glyphicon-book books' %></li>
-          <li><%= link_to ' サイト情報について ', animes_path , class: 'glyphicon glyphicon-book books' %></li>
+          <li><%= link_to ' ユーザー一覧ページ ', users_path, class: 'glyphicon glyphicon-book books' %></li>
+          <li><%= link_to ' サイト情報について ', home_about_path , class: 'glyphicon glyphicon-book books' %></li>
           <li><%= link_to ' ログアウト ', destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout' %></li>
         <% else %>
           <li><%= link_to ' トップページ ', root_path, class: 'glyphicon glyphicon-home home' %></li>

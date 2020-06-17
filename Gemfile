@@ -72,3 +72,9 @@ gem 'jquery-rails'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
+# devise 日本語化
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
+# ページング機能
+gem 'kaminari','~> 1.2.1'

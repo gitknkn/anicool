@@ -7,6 +7,7 @@ class User < ApplicationRecord
         :rememberable, #ログイン情報を保存
         :validatable #(emailのフォーマットなどのバリデーション)
 
+  attachment :my_photo
   has_many :animes, dependent: :destroy 
   has_many :anime_comments, dependent: :destroy
   has_many :favorites ,dependent: :destroy
@@ -15,8 +16,9 @@ class User < ApplicationRecord
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
 
-  validates :name, length: { in: 2..10}
-  
+  validates :name, presence: true,length: { in: 2..10 }
+  validates :email, uniqueness: true
+  validates :my_introdution, presence: true, length: { in: 2..150}
 
   # フォローしているかどうかを確認するメソッド
   def following?(user)

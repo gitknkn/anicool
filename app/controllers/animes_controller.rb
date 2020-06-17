@@ -16,7 +16,7 @@ class AnimesController < ApplicationController
   end
 
   def index
-    @animes = Anime.order(created_at: :desc).limit(8) 
+    @animes = Anime.order(updated_at: :desc).page(params[:page]).per(9)
   end
 
   def show
