@@ -22,6 +22,10 @@
         <td><p><%= @anime.subbody %></p></td>
       </tr>
       <tr>
+        <th><p>アニメ属性:</p><th>
+        <td><p><%= @anime.type_anime_i18n %></p></td>
+      </tr>
+      <tr>
         <th><p>画像:</p><th>
         <td><p><%= attachment_image_tag @anime, :image, :fill, 300, 300, fallback: "no_image.jpg" %></p></td>
       </tr>

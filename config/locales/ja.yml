@@ -39,3 +39,8 @@ ja:
         title: "アニメタイトル"
         main: "名言"
         subbody: "名言に選んだ理由"
+  enums:
+    anime:
+      type_anime:
+        boy: 少年アニメ
+        girl: 少女アニメ

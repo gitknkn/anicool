@@ -17,6 +17,10 @@
           <%= f.text_area :subbody, autofocus: true, autocomplete: "subbody" %>
         </div>
         <div class="form-group">
+          <%= f.label :アニメ属性 %><br />
+          <%= f.select :type_anime, Anime.type_animes_i18n.invert.to_a %>
+        </div>
+        <div class="form-group">
           <%= attachment_image_tag @anime, :image %>
           <%= f.attachment_field :image %>
         </div>

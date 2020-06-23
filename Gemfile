@@ -91,3 +91,6 @@ gem 'dotenv-rails'
 gem "omniauth-rails_csrf_protection"
 
 gem 'pry-rails'
+
+# enum日本語化
+gem 'enum_help'
