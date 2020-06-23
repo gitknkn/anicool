@@ -1,27 +1,30 @@
-<h2>(仮)投稿編集ページ</h2>
-
-<%= form_for(@anime) do |f| %>
-<%= render 'layouts/error_anime', anime: @anime %>
-  <div class="field">
-    <%= f.label :アニメタイトル %><br />
-    <%= f.text_field :title, autofocus: true, autocomplete: "title" %>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h2>アニ名言編集ページ</h2>
+      <%= form_for(@anime) do |f| %>
+      <%= render 'layouts/error_anime', anime: @anime %>
+        <div class="field">
+          <%= f.label :アニメタイトル %><br />
+          <%= f.text_field :title, autofocus: true, autocomplete: "title" %>
+        </div><br />
+        <div class="field">
+          <%= f.label :名言 %><br />
+          <%= f.text_field :main, autofocus: true, autocomplete: "main" %>
+        </div><br />
+        <div class="field">
+          <%= f.label :名言に選んだ理由 %><br />
+          <%= f.text_area :subbody, autofocus: true, autocomplete: "subbody" %>
+        </div><br />
+        <div class="field">
+          <%= attachment_image_tag @anime, :image %>
+          <%= f.attachment_field :image %>
+        </div><br />
+        <div class="field">
+          <%= f.submit "編集を公開する", class: "btn btn-primary" %><br />
+        </div>
+      <% end %>
+      <p><%= link_to "投稿を削除する", anime_path(@anime.id), method: :delete, "data-confirm" => "本当に削除しますか？",class: "btn btn-danger", style: 'color:#FFFFFF;' %></p>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :名言 %><br />
-    <%= f.text_field :main, autofocus: true, autocomplete: "main" %>
-  </div>
-  <div class="field">
-    <%= f.label :名言に選んだ理由 %><br />
-    <%= f.text_area :subbody, autofocus: true, autocomplete: "subbody" %>
-  </div>
-  <div class="field">
-    <%= attachment_image_tag @anime, :image %>
-    <%= f.attachment_field :image %>
-  </div>
-  <div class="field">
-    <%= f.submit "編集を公開する" %><br />
-  </div>
-
-<% end %>
-
-<p><%= link_to "投稿を削除する", anime_path(@anime.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
+</div>

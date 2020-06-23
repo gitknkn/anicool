@@ -2,7 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#typist{
-  font-size: 32px;
-  color: red;
+.top-title {
+  font-size: 38px;
+  text-align: center;
 }
+
+#typist{
+  font-size: 28px;
+  text-align: center;
+  color: red;
+  margin: 20px;
+}
+
+.youyaku {
+  text-align: center;
+}
+

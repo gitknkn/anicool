@@ -78,3 +78,16 @@ gem 'devise-i18n-views'
 
 # ページング機能
 gem 'kaminari','~> 1.2.1'
+
+# sns認証
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
+# 環境変数化
+gem 'dotenv-rails'
+
+# gem "OmniAuth" で脆弱性対策
+gem "omniauth-rails_csrf_protection"
+
+gem 'pry-rails'

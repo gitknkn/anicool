@@ -6,6 +6,7 @@ class AnimeCommentsController < ApplicationController
     @comment = @anime.anime_comments.build(anime_comment_params)
     @comment.user_id = current_user.id
     @comment.save
+    @comments = @anime.anime_comments.order(created_at: :desc)
   end
 
   def destroy
@@ -13,6 +14,7 @@ class AnimeCommentsController < ApplicationController
     @comment = AnimeComment.find(params[:id]) #rails routes確認内容
     @comment.user_id = current_user.id
     @comment.destroy
+    @comments = @anime.anime_comments.order(created_at: :desc)
   end
 
   private
@@ -21,6 +23,8 @@ class AnimeCommentsController < ApplicationController
   end
 end
 
+
+# @comment.anime.anime_comments
 
 # if @comment.save
 #   flash[:success] = "コメントしましました"

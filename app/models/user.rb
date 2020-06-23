@@ -5,7 +5,8 @@ class User < ApplicationRecord
         :registerable, #ユーザー登録や編集、削除
         :recoverable, #パスワードをリセット
         :rememberable, #ログイン情報を保存
-        :validatable #(emailのフォーマットなどのバリデーション)
+        :validatable, #(emailのフォーマットなどのバリデーション)
+        :omniauthable #sns認証
 
   attachment :my_photo
   has_many :animes, dependent: :destroy 
@@ -16,9 +17,9 @@ class User < ApplicationRecord
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
 
-  validates :name, presence: true,length: { in: 2..10 }
+  validates :name, presence: true,length: { in: 1..20 }
   validates :email, uniqueness: true
-  validates :my_introdution, presence: true, length: { in: 2..150}
+  
 
   # フォローしているかどうかを確認するメソッド
   def following?(user)
@@ -33,6 +34,15 @@ class User < ApplicationRecord
   # フォロー外す時のメソッド
   def unfollow(user)
     following_relationships.find_by(following_id: user.id).destroy
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.name = auth.info.name   # assuming the user model has a name
+    end
   end
 
 end

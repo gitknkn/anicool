@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
         flash[:notice] = "#{resource.name}さんの投稿を楽しみにしています！"
         root_path(resource)
       when Admin
-        admins_top_path
+        admins_animes_path
       end
   end
   
