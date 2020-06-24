@@ -1,5 +1,5 @@
 <div class="container">
-<h2><%= @anime.main %></h2>
+<h2 class="main"><%= @anime.main %></h2>
 <div id="favorite_heart<%= @anime.id %>">
   <%= render partial: 'favorites/favorite', locals: { anime: @anime } %>
 </div><br />
@@ -32,7 +32,7 @@
     </table>
     <% if current_user == @anime.user %>
       <p><%= link_to "投稿内容の編集はこちら", edit_anime_path(@anime.id), class: "btn btn-success" %></p>
-    <% end %>
+    <% end %><br />
     <h3 class="text-left title">コメント一覧</h3>
     <ul>
       <div id="comments_area">

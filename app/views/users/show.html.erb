@@ -42,7 +42,8 @@
         <tr>
           <th><p>投稿者名</p></th>
           <th><p>アニメタイトル</p></th>
-          <th><p>名言</p></th>
+          <th><p>アニ名言</p></th>
+          <th><p>アニメ属性</p></th>
           <th><p>写真</p></th>
         </tr>
       </thead>
@@ -52,6 +53,7 @@
             <td><%= anime.user.name %></td>
             <td><%= link_to"#{anime.title}", anime_path(anime.id)  %> 
             <td><%= anime.main %> 
+            <td><%= anime.type_anime_i18n %></td>
             <%# <td><%= image_tag attachment_url(anime, :image, :fill, 300, 300, format: "jpg") </td> %>
             <td><%= attachment_image_tag anime, :image, :fill, 60, 60, fallback: "no_image.jpg" %></td>
           </tr>

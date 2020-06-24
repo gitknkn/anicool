@@ -1,15 +1,14 @@
-<div class="container">
-  <h2>(仮)投稿一覧ページ</h2>
+<div class="index-content">
+  <div class="container">
+  <h2>投稿一覧ページ</h2>
   <%= render 'search/search_form' %>
-  <div class="row-md-12">
     <% @animes.each do |anime| %>
-        <div class="col-md-4">
-          <p><%= link_to"#{anime.title}", anime_path(anime.id) %></p>
-          <%= attachment_image_tag anime, :image, :fill, 250, 250, fallback: "no_image.jpg" %><br />
-        </div>
+      <div class="col-lg-4">
+        <%= attachment_image_tag anime, :image, :fill, 350, 250, fallback: "no_image.jpg" %>
+        <h4><%= link_to "#{anime.title}", anime_path(anime.id), class: "blue-button" %></h4>
+      </div>
     <% end %>
   </div>
 </div>
 
 <div class='p-top__paginate'><%= paginate(@animes) %></div> 
-

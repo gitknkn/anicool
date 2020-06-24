@@ -6,7 +6,7 @@
     <li class="comment-container">
       <div class="comment-box">
         <div class="comment-text">
-          <p><%= link_to "#{comment.user.name}", "#" %></p>
+          <p><%= link_to "#{comment.user.name}", user_path(comment.user.id) %></p>
           <div class="comment-entty">
             <%= comment.comment %>
               <% if comment.user == current_user %>
@@ -31,7 +31,7 @@
       <li class="comment-container">
         <div class="comment-box">
           <div class="comment-text">
-            <p><%= link_to "#{comment.user.name}", "#" %></p>
+            <p><%= link_to "#{comment.user.name}", user_path(comment.user.id) %></p>
             <div class="comment-entry">
               <%= comment.comment %>
               <% if comment.user == current_user %>
@@ -50,4 +50,3 @@
     <% end %>
   <% end %>
 </div>
-

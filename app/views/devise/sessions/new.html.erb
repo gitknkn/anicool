@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-6 mx-auto">
       <h3>Anicool ログインフォーム</h3>
+      <p><%= flash[:alert] %></p>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-group">
           <%= f.label :email %><br />
