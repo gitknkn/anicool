@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h2>アニ名言投稿画面</h2>
+      <%= form_for @anime do |f| %>
+        <%= render 'layouts/error_anime', anime: @anime %>
+        <div class="form-group">
+          <%= f.label :アニメタイトル %><br />
+          <%= f.text_field :title, autofocus: true, autocomplete: "title" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :名言 %><br />
+          <%= f.text_field :main, autofocus: true, autocomplete: "main" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :名言に選んだ理由 %><br />
+          <%= f.text_area :subbody, autofocus: true, autocomplete: "subbody" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :アニメ属性 %><br />
+          <%= f.select :type_anime, Anime.type_animes_i18n.invert.to_a %>
+        </div>
+        <div class="form-group">
+          <%= attachment_image_tag @anime, :image %>
+          <%= f.attachment_field :image %>
+        </div>
+        <div class="field">
+          <%= f.submit "新規投稿", class: "btn btn-primary active" %><br />
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

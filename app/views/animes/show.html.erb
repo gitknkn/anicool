@@ -1,0 +1,47 @@
+<div class="container">
+<h2 class="main"><%= @anime.main %></h2>
+<div id="favorite_heart<%= @anime.id %>">
+  <%= render partial: 'favorites/favorite', locals: { anime: @anime } %>
+</div><br />
+  <div class="row-md-12">
+    <table class="table">
+      <tr>
+        <th><p>投稿者:</p><th>
+        <td><p><%= link_to  "#{@anime.user.name}さんの投稿を見に行く", user_path(@user), data: {"turbolinks" => false} %></p></td>
+      </tr>
+      <tr>
+        <th><p>アニメタイトル:</p><th>
+        <td><p><%= @anime.title %></p></td>
+      </tr>
+      <tr>
+        <th><p>アニ名言:</p><th>
+        <td><p><%= @anime.main %></p></td>
+      </tr>
+      <tr>
+        <th><p>名言に選んだ理由:</p><th>
+        <td><p><%= @anime.subbody %></p></td>
+      </tr>
+      <tr>
+        <th><p>アニメ属性:</p><th>
+        <td><p><%= @anime.type_anime_i18n %></p></td>
+      </tr>
+      <tr>
+        <th><p>画像:</p><th>
+        <td><p><%= attachment_image_tag @anime, :image, :fill, 300, 300, fallback: "no_image.jpg" %></p></td>
+      </tr>
+    </table>
+    <% if current_user == @anime.user %>
+      <p><%= link_to "投稿内容の編集はこちら", edit_anime_path(@anime.id), class: "btn btn-success" %></p>
+    <% end %><br />
+    <h3 class="text-left title">コメント一覧</h3>
+    <ul>
+      <div id="comments_area">
+        <%= render partial: 'anime_comments/index', locals: { comments: @comments, anime: @anime } %>
+      </div>
+    </ul>
+    <div class="comment-create">
+      <p class="text-left">コメント投稿</p>
+      <%= render partial: 'anime_comments/form', locals: { comment: @comment, anime: @anime } %>
+    </div>
+  </div>
+</div>

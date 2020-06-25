@@ -1,0 +1,26 @@
+<div class="container">
+<h2>ユーザー一覧</h2>
+<%= render 'search/search_form' %>
+<%= link_to "投稿一覧画面",  admins_animes_path %>
+<%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %>
+  <div class="col-md-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><p>名前</p></th>
+          <th><p>紹介写真</p></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to "#{user.name}", user_path(user.id) %></td>
+            <td><%= attachment_image_tag user, :my_photo, :fill, 60, 60, fallback: "no_image.jpg" %></td>
+            <td><%= link_to "User削除ボタン", admins_user_path(user.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class='p-top__paginate'><%= paginate(@users) %></div>
+  </div>
+</div>

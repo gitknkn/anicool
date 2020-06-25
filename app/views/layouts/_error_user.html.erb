@@ -1,0 +1,6 @@
+<% if user.errors.any? %>
+  <h3><%= user.errors.count %>件のエラー内容を確認して、再度投稿して下さい。</h3>
+  <% user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+<% end %> 

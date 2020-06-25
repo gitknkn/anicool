@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
@@ -8,7 +7,7 @@ class ApplicationController < ActionController::Base
         flash[:notice] = "#{resource.name}さんの投稿を楽しみにしています！"
         root_path(resource)
       when Admin
-        admins_top_path
+        admins_animes_path
       end
   end
   

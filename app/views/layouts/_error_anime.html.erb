@@ -1,0 +1,6 @@
+<% if anime.errors.any? %>
+  <h3><%= anime.errors.count %>件のエラーを確認して再投稿して下さい。</h3>
+  <% anime.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+<% end %> 

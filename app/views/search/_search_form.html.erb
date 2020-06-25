@@ -1,0 +1,6 @@
+<%= form_tag(search_path, :method => 'get') do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'タイトル検索', :name => nil, class: 'btn btn-primary btn-sm' %>
+<% end %>
+
+

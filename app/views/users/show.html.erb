@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="col-md-12">
+  <h2><%= "#{@user.name}さんのページ" %></h2>
+
+    <div class="follow">
+      <%= link_to following_user_path(@user) do %>
+        <div id="following_count"><p style="color: black;">フォロー<%= @user.following.count %>人</p></div>
+      <% end %>
+    </div>
+    <div class="follower">
+      <%= link_to followers_user_path(@user) do %>
+        <div id="followers_count"><p style="color: black;">フォローワー<%= @user.followers.count %>人</p></div>
+      <% end %>
+    </div>
+    <div>
+      <%= render "follow_form" %>
+    </div>
+    <div class="profile-container">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td><%= attachment_image_tag @user, :my_photo, size:'100x100', format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
+          </tr>
+          <tr>
+            <th>名前</th><td><p class="profile-name"><%= @user.name %></p></td>
+          </tr>
+          <tr>
+          <th>自己紹介</th><td><p class="my_introduction"><%= @user.my_introdution %></p></td>
+          </tr>
+          <tr>
+          <% if @user.id == current_user.id %>
+          <td>
+            <%= link_to "編集", edit_user_path(@user), class: "btn btn-success" %>
+          </td>
+          <% end %> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><p>投稿者名</p></th>
+          <th><p>アニメタイトル</p></th>
+          <th><p>アニ名言</p></th>
+          <th><p>アニメ属性</p></th>
+          <th><p>写真</p></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @animes.each do |anime| %>
+          <tr>
+            <td><%= anime.user.name %></td>
+            <td><%= link_to"#{anime.title}", anime_path(anime.id)  %> 
+            <td><%= anime.main %> 
+            <td><%= anime.type_anime_i18n %></td>
+            <%# <td><%= image_tag attachment_url(anime, :image, :fill, 300, 300, format: "jpg") </td> %>
+            <td><%= attachment_image_tag anime, :image, :fill, 60, 60, fallback: "no_image.jpg" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class='p-top__paginate'><%= paginate(@animes) %></div>
+  </div>
+</div>

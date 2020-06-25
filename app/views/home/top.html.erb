@@ -1,3 +1,27 @@
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 
-<%= flash[:notice] %>
+<h2 class="top-title">〜Anicool〜 あなたのアニ名言はなんですか？</h2><br />
+<div class="youyaku">
+<p>こども頃は、あんなにたくさん読んでいた漫画を最近はあまり読めていいない人</p>
+<p>大人になってからの方が、よく漫画を読むようになった人も</p>
+<p>ふと、漫画の主人公や登場人物のセリフ<b>（アニ名言）</b>を思い出して、</p>
+<p>励まされたり、感動させらた思い出があるでは、ないでしょうか？</p>
+<p>そんな<b>アニ名言</b>を共有して、投稿者も閲覧者も元気になれるようなサイトを目指しています！</p>
+</div><br />
+
+<ul class="bxslider">
+  <li><%= image_tag '/ace.jpg' %></li>
+  <li><%= image_tag '/anzai.jpg' %></li>
+</ul>
+
+<p id="typist"></p>
+<script>
+  ityped.init('#typist', {
+    strings: ['好きなアニメの名言を投稿して下さい！'],
+    typeSpeed: 300,
+    backSpeed: 50,
+    startDelay: 300,
+    backDelay:  1000,
+    loop: true,
+    showCursor: false,
+  });
+</script>
