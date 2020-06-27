@@ -19,7 +19,7 @@
       <table class="table">
         <tbody>
           <tr>
-            <td><%= attachment_image_tag @user, :my_photo, size:'100x100', format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
+            <td><%= attachment_image_tag @user, :my_photo, size:'100x100', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
           </tr>
           <tr>
             <th>名前</th><td><p class="profile-name"><%= @user.name %></p></td>
