@@ -5,19 +5,29 @@
 .top-title {
   font-size: 38px;
   text-align: center;
+  color: blue;
 }
 
 #typist{
   font-size: 28px;
   text-align: center;
-  color: red;
+  color: blue;
   margin: 20px;
 }
 
 .youyaku {
   text-align: center;
+  font-size: 16px;
+  line-height: 45px;
 }
 
 .bxslider {
   margin: 0 auto;
+}
+
+// about page
+.about-page {
+  text-align: center;
+  font-size: 16px;
+  line-height: 30px;
 }

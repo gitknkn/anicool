@@ -4,10 +4,10 @@ ja:
       user:
         current_password: "現在のパスワード"
         email: "メールアドレス"
-        password: "パスワード"
+        password: "パスワード(6文字以上)"
         name: "名前"
         password_confirmation: "確認用パスワード"
-        remember_me: "ログインを記憶"
+        remember_me: "ログイン情報を記憶"
     models:
       user: "ユーザ"
   devise:

@@ -2,6 +2,7 @@
 ===================================*/
 /** RESET AND LAYOUT
 ===================================*/
+
 .bx-wrapper {
   position: relative;
   margin: 0 auto;
@@ -174,4 +175,9 @@ ul.bxslider {
   display: block;
   font-size: .85em;
   padding: 10px;
+}
+
+.bxslider img {
+  width: 100% !important;
+  height: auto !important;
 }
