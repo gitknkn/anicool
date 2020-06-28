@@ -43,8 +43,23 @@ header {
   text-decoration: none;
 }
 
+@media (min-width: 768px){
+  .navbar-nav{
+      margin: 0 auto;
+      display: table;
+      table-layout: fixed;
+      float:none;
+  }
+}
+
 body {
-  background-color: #f5f5f5;
+  background-color: #E0FFFF;
+  background-image: image-url("nakama.jpg");
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-blend-mode:screen;
+  // background-color: #f5f5f5;
   // background-image: image-url("anzai.jpg");
   // background-size: contain;
   // height: 100%;
