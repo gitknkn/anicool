@@ -1,3 +1,5 @@
+<%
+=begin%>
 <div class="index-content">
   <div class="container">
   <h2>投稿一覧ページ</h2>
@@ -9,5 +11,20 @@
       </div>
     <% end %>
   </div>
-</div>
+</div> 
+<%
+=end%>
 
+
+
+<div class="index-content">
+  <div class="container">
+  <h2>投稿一覧ページ</h2>
+  <%= render 'search/search_form' %>
+  <%if @anime == 'title' %>
+    <% @datas.each do  |data| %>
+      <%= data.title %>
+    <% end %>
+  <% end %>
+  </div>
+</div>

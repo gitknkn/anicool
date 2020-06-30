@@ -1,6 +1,16 @@
+<!--
 <%= form_tag(search_path, :method => 'get') do %>
   <%= text_field_tag :search %>
-  <%= submit_tag 'タイトル検索', :name => nil, class: 'btn btn-primary btn-sm' %>
+  <% submit_tag 'タイトル検索', :name => nil, class: 'btn btn-primary btn-sm' %>
 <% end %>
+-->
 
 
+<div class="search-form">
+  <%= form_tag(search_path, :method => 'get') do %>
+    <%= text_field_tag "title_main" %>
+    <%= select_tag 'search[anime]', options_for_select({"タイトル" => "title", "アニ名言" => "main"}) %>
+    <%= select_tag 'search[how]', options_for_select({"完全一致" => "match", "キーワード" => "partical"}) %>
+    <%= submit_tag '検索', class: "btn ntn-primary" %>
+  <% end %>
+</div>
