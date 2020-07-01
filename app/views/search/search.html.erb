@@ -1,30 +1,25 @@
-<%
-=begin%>
 <div class="index-content">
   <div class="container">
-  <h2>投稿一覧ページ</h2>
-  <%= render 'search/search_form' %>
-    <% @animes.each do |anime| %>
-      <div class="col-lg-4">
-        <%= attachment_image_tag anime, :image, :fill, 350, 250, fallback: "no_image.jpg" %>
-        <h4><%= link_to "#{anime.title}", anime_path(anime.id), class: "blue-button" %></h4>
+  <h2>検索一覧ページ</h2>
+    <% @datas.each do |data| %>
+    <div class="col-lg-4">
+      <div class="l-wrapper">
+        <article class="card">
+          <div class="card__header">
+            <h3 class="card__title"><%= data.title %></h3>
+            <figure class="card__thumbnail">
+              <%= attachment_image_tag data, :image, :fill, 350, 250, fallback: "no_image.jpg" %>
+            </figure>
+          </div>
+          <div class="card__body">
+            <p class="card__text"><%= data.main %></p>
+          </div>
+          <div class="card__footer">
+            <p class="card__text"><%= link_to "詳細ページを見る", anime_path(data.id), class: "blue-button" %></p>
+          </div>
+        </article>
       </div>
+    </div>
     <% end %>
-  </div>
-</div> 
-<%
-=end%>
-
-
-
-<div class="index-content">
-  <div class="container">
-  <h2>投稿一覧ページ</h2>
-  <%= render 'search/search_form' %>
-  <%if @anime == 'title' %>
-    <% @datas.each do  |data| %>
-      <%= data.title %>
-    <% end %>
-  <% end %>
   </div>
 </div>

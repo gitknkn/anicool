@@ -3,12 +3,6 @@ Rails.application.routes.draw do
   root "home#top"
   get 'home/about'
   get '/search' => 'search#search'
-
-  devise_for :admins, controllers: {
-    sessions:        "admins/sessions",  #admins/sessionsはコントローラー名
-    passwords:       "admins/passwords",
-    registrations:   "admins/registrations"
-  }
   
   devise_for :users, controllers: {
     sessions:        "users/sessions",
@@ -16,11 +10,6 @@ Rails.application.routes.draw do
     registrations:   "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
-
-  namespace :admins do
-    resources :animes, only: [:index, :destroy]
-    resources :users, only: [:index, :destroy]
-  end
 
   resources :users, only: [:index, :show, :edit, :update] do
     member  do
@@ -32,6 +21,18 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :anime_comments, only: [:create, :destroy]
   end
+
+  namespace :admins do
+    resources :animes, only: [:index, :destroy]
+    resources :users, only: [:index, :destroy]
+  end
+
+  # seedに変更の為、devise使用しない(admins側)
+  # devise_for :admins, controllers: {
+  #   sessions:        "admins/sessions",  #admins/sessionsはコントローラー名
+  #   passwords:       "admins/password",  
+  #   registrations:   "admins/registrations"  
+  # }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

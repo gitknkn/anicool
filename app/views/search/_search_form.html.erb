@@ -8,9 +8,9 @@
 
 <div class="search-form">
   <%= form_tag(search_path, :method => 'get') do %>
+    <%= select_tag 'search[anime_column]', options_for_select({"タイトル" => "title", "アニ名言" => "main"}) %>
+    <%= select_tag 'search[how]', options_for_select({"キーワード" => "partical", "完全一致" => "match"}) %>
     <%= text_field_tag "title_main" %>
-    <%= select_tag 'search[anime]', options_for_select({"タイトル" => "title", "アニ名言" => "main"}) %>
-    <%= select_tag 'search[how]', options_for_select({"完全一致" => "match", "キーワード" => "partical"}) %>
-    <%= submit_tag '検索', class: "btn ntn-primary" %>
+    <%= submit_tag '検索', class: "btn btn-primary" %>
   <% end %>
 </div>

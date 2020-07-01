@@ -5,35 +5,37 @@ class SearchController < ApplicationController
   # end
 
   def search
-    @anime = params["search"]["anime"]
+    @anime_column = params["search"]["anime_column"]
     @how = params["search"]["how"]
     @title_main = params["title_main"]
-    @datas = search_for(@how, @anime, @title_main)
+    @datas = search_for(@how, @anime_column, @title_main)
   end
 
   private
-  def match(anime, title_main)
-    if anime == 'title'
+  def match(anime_column, title_main)
+    if anime_column == 'title'
       Anime.where(title: title_main)
-    else anime == 'main'
+    elsif anime_column == 'main'
       Anime.where(main: title_main)
+    else
+      Anime.all
     end
   end
 
-  def partical(anime, title_main)
-    if anime == 'title'
+  def partical(anime_column, title_main)
+    if anime_column == 'title'
       Anime.where("title LIKE ?", "%#{title_main}%")
-    else anime == 'main'
+    else anime_column == 'main'
       Anime.where("main LIKE ?", "%#{title_main}%")
     end
   end
 
-  def search_for(how, anime, title_main)
+  def search_for(how, anime_column, title_main)
     case how
       when 'match'
-        match(anime, title_main)
+        match(anime_column, title_main)
       when 'partical'
-        partical(anime, title_main)
+        partical(anime_column, title_main)
     end
   end
 
