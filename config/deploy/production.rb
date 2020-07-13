@@ -60,5 +60,6 @@
 #     # password: "please use keys"
 #   }
 
-server '52.196.88.250', user: 'ec2-user', roles: %w{app web db}
-server '52.199.12.46', user: 'ec2-user', roles: %w{app web db}
+# server '52.196.88.250', user: 'ec2-user', roles: %w{app web db} 元々PFで使用していた分
+server '52.199.12.46', user: 'ec2-user', roles: %w{app web db} #EC2 anicool-AMI1
+server '13.230.34.208', user: 'ec2-user', roles: %w{app web db} #EC2 anicool-AMI2
