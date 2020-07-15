@@ -27,7 +27,7 @@
       </tr>
       <tr>
         <th><p>画像:</p><th>
-        <td><p><%= attachment_image_tag @anime, :image, :fill, 300, 300, fallback: "no_image.jpg" %></p></td>
+        <td><p><%= attachment_image_tag @anime, :image, :fill, 300, 300, fallback: "no_image.jpg", size: '300x300' %></p></td>
       </tr>
     </table>
     <% if current_user == @anime.user %>

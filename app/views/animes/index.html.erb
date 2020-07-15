@@ -9,7 +9,7 @@
           <div class="card__header">
             <h3 class="card__title"><%= anime.title %></h3>
             <figure class="card__thumbnail">
-              <%= attachment_image_tag anime, :image, :fill, 350, 250, fallback: "no_image.jpg" %>
+              <%= attachment_image_tag anime, :image, :fill, 350, 250, fallback: "no_image.jpg", size: '350x250' %>
             </figure>
           </div>
           <div class="card__body">

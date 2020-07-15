@@ -55,7 +55,7 @@
             <td><%= anime.main %> 
             <td><%= anime.type_anime_i18n %></td>
             <%# <td><%= image_tag attachment_url(anime, :image, :fill, 300, 300, format: "jpg") </td> %>
-            <td><%= attachment_image_tag anime, :image, :fill, 60, 60, fallback: "no_image.jpg" %></td>
+            <td><%= attachment_image_tag anime, :image, :fill, 60, 60, fallback: "no_image.jpg", size: '60x60' %></td>
           </tr>
         <% end %>
       </tbody>

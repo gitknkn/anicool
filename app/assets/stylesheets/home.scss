@@ -27,8 +27,13 @@
 
 // about page
 .about-page {
-  text-align: center;
   font-size: 16px;
   line-height: 30px;
+} .about-page p {
+  display: inline-block;
+  text-align: left;
+} .about-page h3 {
+  display: inline-block;
+  text-align: left;
 }
 

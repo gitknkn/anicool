@@ -102,4 +102,5 @@ group :production do
   gem 'mysql2'
 end
 
+# aws s3使用
 gem "refile-s3"
