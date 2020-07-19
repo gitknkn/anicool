@@ -20,7 +20,16 @@
       <%= render 'layouts/header' %>
     </header>
     <main>
-      <p><%= flash[:notice] %></p>
+      <div class="notice">
+        <% if flash[:notice] %>
+          <strong><%= flash[:notice] %></strong>
+        <% end %>
+        </div>
+      <div class="alert">
+        <% if flash[:alert] %>
+          <strong><%= flash[:alert] %></strong>
+        <% end %>
+      </div>
       <%= yield %>
     </main>
     <footer>

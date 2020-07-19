@@ -30,7 +30,7 @@ class AnimesController < ApplicationController
   def edit
     @anime = Anime.find(params[:id])
     if @anime.user != current_user
-      redeirct_to animes_path
+      redirect_to animes_path, alert: '投稿者のみアクセスが可能です。'
     end
   end
 
