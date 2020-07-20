@@ -1,3 +1,17 @@
+<%- if devise_mapping.omniauthable? %><br />
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <% if provider.to_s == 'facebook' %>
+      <%= link_to  omniauth_authorize_path(resource_name, provider), method: :post do %>
+        <i class="fab fa-facebook-square fa-2x">  Facebookでログイン</i><br />
+      <% end %><br />
+    <% else %>
+      <%= link_to  omniauth_authorize_path(resource_name, provider), method: :post do %>
+        <i class="fab fa-google fa-2x">  Googleでログイン</i><br />
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
 <%- if controller_name != 'sessions' %><br />
   <%= link_to "既にご登録している方はこちら", new_session_path(resource_name) %><br />
 <% end %>
@@ -19,16 +33,4 @@
 <% end %>
 
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <% if provider.to_s == 'facebook' %>
-      <%= link_to  omniauth_authorize_path(resource_name, provider), method: :post do %>
-        <i class="fab fa-facebook-square fa-1.5x">  Facebookで登録</i>
-      <% end %><br />
-    <% else %>
-      <%= link_to  omniauth_authorize_path(resource_name, provider), method: :post do %>
-        <i class="fab fa-google fa-1.5x"> Googleで登録</i>
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
+

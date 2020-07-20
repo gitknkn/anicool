@@ -36,6 +36,13 @@ class User < ApplicationRecord
     following_relationships.find_by(following_id: user.id).destroy
   end
 
+  # データーベースから情報を探し、データーがなければ、作成する
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com', name: 'ゲストユーザー') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       
