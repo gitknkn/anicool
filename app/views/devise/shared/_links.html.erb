@@ -1,27 +1,31 @@
 <%- if devise_mapping.omniauthable? %><br />
   <%- resource_class.omniauth_providers.each do |provider| %>
     <% if provider.to_s == 'facebook' %>
-      <%= link_to  omniauth_authorize_path(resource_name, provider), method: :post do %>
-        <i class="fab fa-facebook-square fa-2x">  Facebookでログイン</i><br />
-      <% end %><br />
+      <div class="btn btn-info">
+        <%= link_to  omniauth_authorize_path(resource_name, provider), method: :post do %>
+          <i class="fab fa-facebook-square fa-1x"> Facebookでログイン</i><br />
+      </div>
+        <% end %>
     <% else %>
-      <%= link_to  omniauth_authorize_path(resource_name, provider), method: :post do %>
-        <i class="fab fa-google fa-2x">  Googleでログイン</i><br />
-      <% end %>
+      <div class="btn btn-danger">
+        <%= link_to  omniauth_authorize_path(resource_name, provider), method: :post do %>
+          <i class="fab fa-google fa-1x"> Googleでログイン</i><br />
+      </div><br />
+        <% end %>
     <% end %>
   <% end %>
 <% end %>
 
 <%- if controller_name != 'sessions' %><br />
-  <%= link_to "既にご登録している方はこちら", new_session_path(resource_name) %><br />
-<% end %>
+  <%= link_to "既にご登録している方はこちら", new_session_path(resource_name) %>
+<% end %><br />
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+  <%= link_to "新規登録画面へ", new_registration_path(resource_name) %><br />
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+  <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name) %><br />
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
@@ -31,6 +35,3 @@
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
-
-
-

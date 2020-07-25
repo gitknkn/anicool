@@ -91,20 +91,16 @@ img {
 }
 // ここまで写真表示部分
 
-
-
 // 上部に空白追加
 .col-lg-4 {
   margin-top: 20px;
 }
 
-
-// @media (max-width: 768px) {
-//   .index-content .col-lg-4 {
-//     margin-top: 20px;
-//   }
-// }
-
+@media (max-width: 1200px) {
+  .card__header {
+    display: flex;
+    width: 40%;
+    flex-wrap: wrap;
+  }
+}
 // 写真表示部分 ここまで
-
-
