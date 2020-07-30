@@ -1,9 +1,5 @@
 class SearchController < ApplicationController
 
-  # def search
-  #   @animes = Anime.search(params[:search])
-  # end
-
   def search
     @anime_column = params["search"]["anime_column"]
     @how = params["search"]["how"]

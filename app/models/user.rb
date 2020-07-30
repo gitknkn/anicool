@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
 
-  validates :name, presence: true,length: { in: 1..20 }
+  validates :name, presence: true,length: { in: 1..40 }
   validates :email, uniqueness: true
   
 
@@ -48,7 +48,7 @@ class User < ApplicationRecord
       
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
-      user.name = auth.info.name   # assuming the user model has a name
+      user.name = auth.info.name
     end
   end
 

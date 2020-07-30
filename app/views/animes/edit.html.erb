@@ -17,14 +17,15 @@
           <%= f.text_area :subbody, autofocus: true, autocomplete: "subbody" %>
         </div><br />
         <div class="field">
-          <%= attachment_image_tag @anime, :image %>
+          <p><%= attachment_image_tag @anime, :image, size: '500x300' %></p>
           <%= f.attachment_field :image %>
         </div><br />
         <div class="field">
-          <%= f.submit "編集を公開する", class: "btn btn-primary" %><br />
+          <%= f.submit "編集を保存", class: "btn btn-primary" %>
+          <%= link_to "投稿を削除", anime_path(@anime.id), method: :delete, "data-confirm" => "本当に削除しますか？",class: "btn btn-danger", style: 'color:#FFFFFF;' %>
+          <%= link_to "戻る", :back, class: "btn btn-default" %>
         </div>
       <% end %>
-      <p><%= link_to "投稿を削除する", anime_path(@anime.id), method: :delete, "data-confirm" => "本当に削除しますか？",class: "btn btn-danger", style: 'color:#FFFFFF;' %></p>
     </div>
   </div>
 </div>

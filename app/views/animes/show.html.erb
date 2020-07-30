@@ -1,8 +1,8 @@
 <div class="container">
 <h2 class="main"><%= @anime.main %></h2>
-<div id="favorite_heart<%= @anime.id %>">
-  <%= render partial: 'favorites/favorite', locals: { anime: @anime } %>
-</div><br />
+  <div id="favorite_heart<%= @anime.id %>">
+    <%= render partial: 'favorites/favorite', locals: { anime: @anime } %>
+  </div><br />
   <div class="row-md-12">
     <table class="table">
       <tr>
@@ -31,7 +31,10 @@
       </tr>
     </table>
     <% if current_user == @anime.user %>
-      <p><%= link_to "投稿内容の編集はこちら", edit_anime_path(@anime.id), class: "btn btn-success" %></p>
+      <%= link_to "投稿編集ページ", edit_anime_path(@anime.id), class: "btn btn-success" %>
+      <%= link_to "戻る", :back, class: "btn btn-default" %>
+    <% else %>
+      <%= link_to "戻る", :back, class: "btn btn-default" %>
     <% end %><br />
     <h3 class="text-left title">コメント一覧</h3>
     <ul>
@@ -39,8 +42,8 @@
         <%= render partial: 'anime_comments/index', locals: { comments: @comments, anime: @anime } %>
       </div>
     </ul>
+    <span class="text-left">コメント投稿</span>
     <div class="comment-create">
-      <p class="text-left">コメント投稿</p>
       <%= render partial: 'anime_comments/form', locals: { comment: @comment, anime: @anime } %>
     </div>
   </div>

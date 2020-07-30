@@ -7,7 +7,6 @@ class AnimesController < ApplicationController
 
   def create
     @anime = Anime.new(anime_params)
-    # @anime.type = Anime.params[:type]
     @anime.user_id = current_user.id
     if @anime.save
       redirect_to animes_path, notice: "投稿が完了しました！"

@@ -3,13 +3,13 @@
     <% if provider.to_s == 'facebook' %>
       <div class="btn btn-info">
         <%= link_to  omniauth_authorize_path(resource_name, provider), method: :post do %>
-          <i class="fab fa-facebook-square fa-1x"> Facebookでログイン</i><br />
+          <i class="fab fa-facebook-square fa-spin fa-1x"> </i><span> Facebookでログイン</span><br />
       </div>
         <% end %>
     <% else %>
       <div class="btn btn-danger">
         <%= link_to  omniauth_authorize_path(resource_name, provider), method: :post do %>
-          <i class="fab fa-google fa-1x"> Googleでログイン</i><br />
+          <i class="fab fa-google fa-spin fa-1x"> </i><span> Googleでログイン</span><br />
       </div><br />
         <% end %>
     <% end %>

@@ -22,17 +22,3 @@ class AnimeCommentsController < ApplicationController
     params.require(:anime_comment).permit(:comment, :user_id, :anime_id)
   end
 end
-
-
-# @comment.anime.anime_comments
-
-# if @comment.save
-#   flash[:success] = "コメントしましました"
-#   redirect_back(fallback_location: anime_path(anime))
-# else
-#   flash[:alert]
-#   render template: "animes/show"
-# end
-
-
-# redirect_to anime_path(params[:anime_id])
